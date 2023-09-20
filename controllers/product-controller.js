@@ -17,6 +17,7 @@ let AgregarProd = (req, res) => {
       message: "Producto registrado correctamente",
     });
   });
+  
 };
 
 let ActualizarProd = (req, res) => {

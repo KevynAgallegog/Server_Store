@@ -16,7 +16,7 @@ const app = express()
   .use(bodyParser.json())
   .use(cookieParser(signingKey.SIGNING_KEY_COOKIE));
 
-let port = 5000;
+let port = 3000;
 
 app.use('/buyProduct', buyProduct);
 app.use('/ShowUser', ShowUser);
