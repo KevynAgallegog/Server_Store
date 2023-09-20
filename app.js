@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const validateToken = require('./routes/GetAuthentication');
-const AddProduct = require('./routes/addProduct');
+const AddProduct = require('./routes/AddProduct');
 const UpdateProduct = require('./routes/UpdateProduct');
 const DeleteProduct = require('./routes/DeleteProduct');
 const ShowUser = require('./routes/ShowUser');
@@ -16,7 +16,7 @@ const app = express()
   .use(bodyParser.json())
   .use(cookieParser(signingKey.SIGNING_KEY_COOKIE));
 
-let port = 10101;
+let port = 5000;
 
 app.use('/buyProduct', buyProduct);
 app.use('/ShowUser', ShowUser);

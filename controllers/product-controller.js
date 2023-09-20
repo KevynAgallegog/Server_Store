@@ -1,6 +1,7 @@
 const ProductRepository = require("../repositories/productRepository");
 const UserRepository = require("../repositories/userRepository");
 const ValidateAdmin = require('../middleware/ValidateAdmin');
+const Product = require("../models/product");
 
 let ObtenerProds = (req, res) => {
   ProductRepository.getAllProducts((products) => {
@@ -10,7 +11,8 @@ let ObtenerProds = (req, res) => {
 
 let AgregarProd = (req, res) => {
   ValidateAdmin.njwtAuth(req, res, null)
-  ProductRepository.addNewProduct(req.body, () => {
+  let product = new Product(req.body.id,req.body.name,req.body.price)
+  ProductRepository.addNewProduct(product, () => {
     res.status(200).json({
       message: "Producto registrado correctamente",
     });
@@ -19,7 +21,8 @@ let AgregarProd = (req, res) => {
 
 let ActualizarProd = (req, res) => {
   ValidateAdmin.njwtAuth(req, res, null)
-  ProductRepository.updateProduct(req.body, () => {
+  let product1 = new Product(req.body.id,req.body.name,req.body.price)
+  ProductRepository.updateProduct(product1, () => {
     res.status(200).json({
       message: "Producto actualizado correctamente",
     });

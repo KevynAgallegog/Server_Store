@@ -6,8 +6,8 @@ let auth = (req, res) => {
   let email = req.body.email;
   let password = req.body.password;
   let rol = req.body.rol;
-  console.log("Email", email);
-  console.log("Password", password);
+    console.log("Email", email);
+    console.log("Password", password);
 
   let token = generateToken(
     { email: email, rol: rol },

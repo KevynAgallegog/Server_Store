@@ -4,7 +4,7 @@ const router = express.Router();
 const ValidateAdmin = require('../middleware/ValidateAdmin')
 
 // Ruta para eliminar un producto. Requiere autenticación JWT de administrador.
-router.delete('/', productController.eliminarProd, ValidateAdmin.njwtAuth);
+router.delete('/',ValidateAdmin.njwtAuth, productController.eliminarProd, ); 
 
 
-module.exports = router; 
+module.exports = router;
